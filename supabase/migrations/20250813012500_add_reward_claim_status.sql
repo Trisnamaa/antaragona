@@ -1,0 +1,3 @@
+-- This migration is intentionally left blank.
+-- The schema change for claimed_rewards_at
+-- was already applied to the database manually.

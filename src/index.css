@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+
+  html {
+    background-color: #1e1e1e;
+  }
+}
+
+@layer components {
+  /* RPG Dark Theme Components */
+  .rpg-bg {
+  background: url('https://raw.githubusercontent.com/AquaCasaster/db_image/main/1753383548866-o0fz7d.png') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* Loading Screen Styles */
+.loading-bg {
+  background-image: url('https://raw.githubusercontent.com/AquaCasaster/db_image/main/1754050637694-t67cjn.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Responsive background untuk mobile */
+@media (max-width: 768px) {
+  .loading-bg {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+/* Progress bar animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced glow effects */
+.rpg-glow {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+}
+
+.rpg-text-glow {
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.8), 0 0 20px rgba(147, 51, 234, 0.5);
+}
+
+/* Loading icons animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .loading-content {
+    padding: 1rem;
+  }
+  
+  .loading-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .loading-title {
+    font-size: 2.5rem;
+  }
+  
+  .loading-icons {
+    gap: 1.5rem;
+  }
+  
+  .loading-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .loading-bg {
+    background-attachment: fixed;
+  }
+  
+  .loading-content {
+    padding: 2rem;
+  }
+}
+  .rpg-card {
+    @apply bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl;
+    background: rgba(55, 65, 81, 0.9);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+  }
+
+  .rpg-card-light {
+    @apply bg-gray-700/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-4 shadow-xl;
+    background: rgba(75, 85, 99, 0.8);
+    border: 1px solid rgba(156, 163, 175, 0.3);
+  }
+
+  .rpg-card-accent {
+    @apply bg-purple-900/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-6 shadow-2xl;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+  }
+
+  /* Modern Button Styles with RPG Theme */
+  .btn-primary {
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-purple-500/25 disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #6c5ce7 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-200 font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-gray-500/25 disabled:opacity-50 disabled:cursor-not-allowed;
+    background: rgba(75, 85, 99, 0.8);
+    border: 1px solid rgba(156, 163, 175, 0.3);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(107, 114, 128, 0.9);
+  }
+  
+  .btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-green-500/25 disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  }
+  
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-red-500/25 disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+  }
+  
+  .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+  }
+  
+  .btn-warning {
+    @apply bg-orange-600 hover:bg-orange-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-orange-500/25 disabled:opacity-50 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+  }
+  
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(234, 88, 12, 0.4);
+  }
+  
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  /* Modern Card Styles */
+  .card {
+    @apply rpg-card;
+  }
+  
+  .card-dark {
+    @apply bg-gray-900/90 text-white rounded-2xl shadow-2xl border border-gray-700/50 p-6 transition-all duration-200 hover:shadow-purple-500/10;
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-accent {
+    @apply rpg-card-accent text-white;
+  }
+  
+  /* Modern Input Styles */
+  .input-modern {
+    @apply bg-gray-800/80 border border-gray-600/50 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm;
+    background: rgba(31, 41, 55, 0.8);
+  }
+  
+  /* Modern Modal Styles */
+  .modal-modern {
+    @apply rpg-card max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto;
+  }
+  
+  /* Modern Navigation */
+  .nav-modern {
+    @apply bg-gray-900/95 backdrop-blur-sm border-t border-gray-700/50 shadow-2xl;
+    background: rgba(17, 24, 39, 0.95);
+  }
+  
+  /* Modern Progress Bar */
+  .progress-modern {
+    @apply bg-gray-700/50 rounded-full h-3 overflow-hidden border border-gray-600/30;
+    background: rgba(75, 85, 99, 0.5);
+  }
+  
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-300 ease-out;
+  }
+  
+  /* Modern Inventory Grid */
+  .inventory-item {
+    @apply rpg-card-light transition-all duration-200 hover:shadow-lg hover:border-purple-500/30 cursor-pointer hover:transform hover:scale-105;
+  }
+  
+  /* Modern Chat Bubble */
+  .chat-bubble {
+    @apply rounded-2xl px-4 py-3 max-w-xs shadow-lg backdrop-blur-sm;
+  }
+  
+  .chat-bubble-own {
+    @apply bg-purple-600/90 text-white ml-auto;
+    background: linear-gradient(135deg, #6c5ce7 0%, #8b5cf6 100%);
+  }
+  
+  .chat-bubble-other {
+    @apply bg-gray-700/90 text-gray-100;
+    background: rgba(75, 85, 99, 0.9);
+  }
+  
+  /* Modern Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm;
+  }
+  
+  .badge-primary {
+    @apply bg-purple-600/20 text-purple-300 border border-purple-500/30;
+  }
+  
+  .badge-success {
+    @apply bg-green-600/20 text-green-300 border border-green-500/30;
+  }
+  
+  .badge-warning {
+    @apply bg-orange-600/20 text-orange-300 border border-orange-500/30;
+  }
+  
+  .badge-danger {
+    @apply bg-red-600/20 text-red-300 border border-red-500/30;
+  }
+  
+  /* Modern Stats Display */
+  .stat-card {
+    @apply rpg-card-light;
+  }
+  
+  /* Modern Avatar - FIXED CIRCULAR SHAPE */
+  .avatar {
+    @apply rounded-full border-4 border-purple-500/30 shadow-lg;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  
+  .avatar-lg {
+    @apply w-24 h-24;
+  }
+  
+  .avatar-md {
+    @apply w-16 h-16;
+  }
+  
+  .avatar-sm {
+    @apply w-12 h-12;
+  }
+
+  /* RPG Specific Elements */
+  .rpg-glow {
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.3);
+  }
+
+  .rpg-glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+
+  .rpg-glow-red {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+
+  .rpg-text-glow {
+    text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 92, 231, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(108, 92, 231, 0.6); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse 2s infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .card, .rpg-card, .rpg-card-light {
+    @apply p-4;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-success, .btn-danger, .btn-warning {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .modal-modern {
+    @apply p-6;
+  }
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(75, 85, 99, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(108, 92, 231, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 92, 231, 0.8);
+}
+
+/* Focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Text color overrides for dark theme */
+.text-gray-900 {
+  @apply text-gray-100;
+}
+
+.text-gray-800 {
+  @apply text-gray-200;
+}
+
+.text-gray-700 {
+  @apply text-gray-300;
+}
+
+.text-gray-600 {
+  @apply text-gray-400;
+}
+
+/* Background overrides for dark theme */
+.bg-white {
+  @apply bg-gray-800;
+}
+
+.bg-gray-50 {
+  @apply bg-gray-700;
+}
+
+.bg-gray-100 {
+  @apply bg-gray-700;
+}
+
+.bg-gray-200 {
+  @apply bg-gray-600;
+}

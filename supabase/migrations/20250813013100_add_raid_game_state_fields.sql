@@ -1,0 +1,3 @@
+-- This migration is intentionally left blank.
+-- The schema changes for raid game state (current_round, is_alive, etc.)
+-- were already applied to the database manually.
